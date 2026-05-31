@@ -1,0 +1,38 @@
+# targets.example.yaml – Beispielkonfiguration
+# ===============================================
+# Diese Datei zeigt, wie Scan-Ziele und Parameter konfiguriert werden können.
+# Kopieren Sie diese Datei als 'targets.yaml' und passen Sie die Werte an.
+#
+# Verwendung:
+#   python audit.py --target 192.168.1.1
+#   python audit.py --target 10.0.0.0/24 --output html
+
+# Einzelne Hosts
+hosts:
+  - name: "Gateway / Router"
+    ip: "192.168.1.1"
+    ports: "1-1024"
+
+  - name: "Web-Server"
+    ip: "192.168.1.10"
+    ports: "22,80,443,8080,8443"
+
+  - name: "Datenbank-Server"
+    ip: "192.168.1.20"
+    ports: "22,3306,5432,6379"
+
+# Netzwerk-Segmente (CIDR)
+netzwerke:
+  - name: "Internes LAN"
+    cidr: "192.168.1.0/24"
+    ports: "22,80,443,3389"
+
+  - name: "DMZ"
+    cidr: "10.10.10.0/28"
+    ports: "1-65535"
+
+# Globale Einstellungen
+einstellungen:
+  timeout: 1.0        # Verbindungs-Timeout in Sekunden
+  threads: 100        # Parallele Scan-Threads
+  ausgabe: "html"     # Standardformat: text | json | html

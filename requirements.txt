@@ -1,0 +1,5 @@
+# Externe Abhängigkeiten – minimal gehalten
+# Die meisten Module nutzen die Python-Standardbibliothek
+
+pyyaml>=6.0        # YAML-Konfigurationsdateien lesen
+colorama>=0.4.6    # Farbige Terminal-Ausgabe (Windows-kompatibel)
